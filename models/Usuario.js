@@ -29,6 +29,10 @@ const Usuario = (sequelize, Datatypes) => {
     }
   );
     
+  usuario.associate = (models) => {
+    usuario.hasMany(models.Perfil, { foreignKey: 'usuario_id', as: 'perfis' });
+  };
+  
   return usuario;
 };
   
